@@ -1,15 +1,9 @@
-const fs = require("fs").promises;
+const fs = require("fs");
 const path = require("path");
-const { s3, S3_BUCKET } = require("../config/aws-config.js");
-const { ListObjectsV2Command, GetObjectCommand } = require("@aws-sdk/client-s3");
+const axios = require("axios");
+const AdmZip = require("adm-zip");
 
-async function streamToBuffer(stream) {
-    const chunks = [];
-    for await (const chunk of stream) {
-        chunks.push(chunk);
-    }
-    return Buffer.concat(chunks);
-}
+const server_url = "https://fluxus-backend-ym4j.onrender.com";
 
 async function pullRepo() {
     const repoPath = path.resolve(process.cwd(), ".flux");
@@ -18,95 +12,68 @@ async function pullRepo() {
     const headPath = path.join(repoPath, "HEAD");
 
     try {
-        const config = JSON.parse(await fs.readFile(configPath, "utf-8"));
-        const repoId = config.remotes.origin.repoId;
+        const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 
-        const data = await s3.send(new ListObjectsV2Command({
-            Bucket: S3_BUCKET,
-            Prefix: `${repoId}/`,
-        }));
-
-        const commitMap = {};
-
-        for (const obj of data.Contents || []) {
-            if (!obj.Key || obj.Key.endsWith("/")) continue;
-
-            const parts = obj.Key.split("/");
-            const commitId = parts[1];
-
-            if (!commitMap[commitId]) commitMap[commitId] = [];
-            commitMap[commitId].push(obj);
+        if (!config.remotes || !config.remotes.origin) {
+            throw new Error("Remote origin not set");
         }
 
-        let latestCommitId = null;
-        let latestTime = 0;
+        const repoId = config.remotes.origin.repoId;
 
-        // Read commit.json for accurate detection
-        for (const commitId in commitMap) {
-            const metaObj = commitMap[commitId].find(o => o.Key.endsWith("commit.json"));
-            if (!metaObj) continue;
+        console.log("Downloading latest commit...");
 
-            const res = await s3.send(new GetObjectCommand({
-                Bucket: S3_BUCKET,
-                Key: metaObj.Key
-            }));
+        const res = await axios.post(
+            `${server_url}/api/pull`,
+            { repoId },
+            { responseType: "arraybuffer" } // important
+        );
 
-            const buffer = await streamToBuffer(res.Body);
-            const json = JSON.parse(buffer.toString());
+        const zipBuffer = res.data;
 
-            if (json.timestamp > latestTime) {
-                latestTime = json.timestamp;
-                latestCommitId = commitId;
+        // temp zip path
+        const zipPath = path.join(repoPath, "latest.zip");
+        fs.writeFileSync(zipPath, zipBuffer);
+
+        // unzip
+        const zip = new AdmZip(zipPath);
+        const extractPath = path.join(commitsPath, "temp");
+
+        zip.extractAllTo(extractPath, true);
+
+        // get commitId from response headers
+        const commitId = res.headers["x-commit-id"];
+
+        const finalPath = path.join(commitsPath, commitId);
+
+        fs.renameSync(extractPath, finalPath);
+
+        // copy to working directory
+        function copyFolder(src, dest) {
+            const items = fs.readdirSync(src, { withFileTypes: true });
+
+            for (const item of items) {
+                const srcPath = path.join(src, item.name);
+                const destPath = path.join(dest, item.name);
+
+                if (item.isDirectory()) {
+                    fs.mkdirSync(destPath, { recursive: true });
+                    copyFolder(srcPath, destPath);
+                } else {
+                    fs.writeFileSync(destPath, fs.readFileSync(srcPath));
+                }
             }
         }
 
-        if (!latestCommitId) {
-            console.log("No commits found");
-            return;
-        }
+        copyFolder(finalPath, process.cwd());
 
-        const latestObjects = commitMap[latestCommitId];
+        fs.writeFileSync(headPath, commitId);
 
-        // Save commit locally
-        for (const obj of latestObjects) {
-            const relativePath = obj.Key.replace(`${repoId}/${latestCommitId}/`, "");
-            const filePath = path.join(commitsPath, latestCommitId, relativePath);
+        fs.unlinkSync(zipPath);
 
-            const res = await s3.send(new GetObjectCommand({
-                Bucket: S3_BUCKET,
-                Key: obj.Key
-            }));
+        console.log("Pull successful:", commitId);
 
-            const buffer = await streamToBuffer(res.Body);
-
-            await fs.mkdir(path.dirname(filePath), { recursive: true });
-            await fs.writeFile(filePath, buffer);
-        }
-
-        // Update working directory
-        for (const obj of latestObjects) {
-            const relativePath = obj.Key.replace(`${repoId}/${latestCommitId}/`, "");
-
-            if (relativePath === "commit.json") continue;
-
-            const filePath = path.join(process.cwd(), relativePath);
-
-            const res = await s3.send(new GetObjectCommand({
-                Bucket: S3_BUCKET,
-                Key: obj.Key
-            }));
-
-            const buffer = await streamToBuffer(res.Body);
-
-            await fs.mkdir(path.dirname(filePath), { recursive: true });
-            await fs.writeFile(filePath, buffer);
-        }
-
-        await fs.writeFile(headPath, latestCommitId);
-
-        console.log("Pull successful:", latestCommitId);
     } catch (err) {
-        console.error("Pull failed:", err.message);
+        console.error("Pull failed:", err.response?.data || err.message);
     }
 }
 

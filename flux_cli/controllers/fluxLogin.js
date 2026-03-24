@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
-const server_url = process.env.SERVER_URL;
+const server_url = "https://fluxus-backend-ym4j.onrender.com";
 
 
 const configPath = path.join(os.homedir(), ".fluxconfig.json");

@@ -1,31 +1,25 @@
-const fs = require("fs").promises;
+const fs = require("fs");
 const path = require("path");
-const { s3, S3_BUCKET } = require("../config/aws-config.js");
-const { PutObjectCommand } = require("@aws-sdk/client-s3");
+const axios = require("axios");
+const archiver = require("archiver");
+const FormData = require("form-data");
 
-async function uploadFolder(localPath, remotePath) {
-    const items = await fs.readdir(localPath, { withFileTypes: true });
+const server_url = "https://fluxus-backend-ym4j.onrender.com";
 
-    for (const item of items) {
-        const fullPath = path.join(localPath, item.name);
-        const key = `${remotePath}/${item.name}`;
+// zip folder
+async function zipFolder(source, out) {
+    const archive = archiver("zip", { zlib: { level: 9 } });
+    const stream = fs.createWriteStream(out);
 
-        if (item.isDirectory()) {
-            await uploadFolder(fullPath, key);
-        } else {
-            const fileContent = await fs.readFile(fullPath);
+    return new Promise((resolve, reject) => {
+        archive
+            .directory(source, false)
+            .on("error", err => reject(err))
+            .pipe(stream);
 
-            console.log("Uploading files...");
-            
-            await s3.send(new PutObjectCommand({
-                Bucket: S3_BUCKET,
-                Key: key,
-                Body: fileContent,
-            }));
-
-            console.log("Uploaded:", key);
-        }
-    }
+        stream.on("close", () => resolve());
+        archive.finalize();
+    });
 }
 
 async function pushRepo() {
@@ -35,22 +29,40 @@ async function pushRepo() {
     const headPath = path.join(repoPath, "HEAD");
 
     try {
-        const config = JSON.parse(await fs.readFile(configPath, "utf-8"));
+        const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 
         if (!config.remotes || !config.remotes.origin) {
             throw new Error("Remote origin not set");
         }
 
         const repoId = config.remotes.origin.repoId;
-
-        const commitId = (await fs.readFile(headPath, "utf-8")).trim();
+        const commitId = fs.readFileSync(headPath, "utf-8").trim();
         const commitPath = path.join(commitsPath, commitId);
 
-        await uploadFolder(commitPath, `${repoId}/${commitId}`);
+        const zipPath = path.join(repoPath, `${commitId}.zip`);
 
-        console.log("Push successful");
+        console.log("Zipping files...");
+        await zipFolder(commitPath, zipPath);
+
+        console.log("Uploading to server...");
+
+        const form = new FormData();
+        form.append("repoId", repoId);
+        form.append("commitId", commitId);
+        form.append("file", fs.createReadStream(zipPath));
+
+        await axios.post(`${server_url}/api/push`, form, {
+            headers: form.getHeaders(),
+            maxBodyLength: Infinity,
+            maxContentLength: Infinity
+        });
+
+        fs.unlinkSync(zipPath); // delete zip after upload
+
+        console.log("Push successful.");
+
     } catch (err) {
-        console.error("Push failed:", err.message);
+        console.error("Push failed:", err.response?.data || err.message);
     }
 }
 

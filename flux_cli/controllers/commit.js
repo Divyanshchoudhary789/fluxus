@@ -3,7 +3,7 @@ const path = require("path");
 const os = require("os");
 const { v4: uuidv4 } = require("uuid");
 const axios = require("axios");
-const server_url = process.env.SERVER_URL;
+const server_url = "https://fluxus-backend-ym4j.onrender.com";
 
 
 async function getToken() {

@@ -2,9 +2,6 @@
 // shebang (hashbang) --> Tells the operating system to execute this file using Node.js
 
 
-const dotenv = require("dotenv");
-dotenv.config();
-
 const yargs = require("yargs");
 
 const { hideBin } = require("yargs/helpers");
