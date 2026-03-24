@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { server_url } from "../../../environment.js";
+
 import axios from "axios";
 import Editor from "@monaco-editor/react";
 import { useMonaco } from "@monaco-editor/react";
@@ -16,7 +18,7 @@ function FileViewer() {
         const fetchFile = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:8080/repo/${repoId}/file`,
+                    `${server_url}/repo/${repoId}/file`,
                     {
                         params: {
                             filePath,

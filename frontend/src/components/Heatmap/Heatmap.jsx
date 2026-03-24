@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { server_url } from "../../environment.js";
 import axios from "axios";
 import {
     format,
@@ -18,7 +19,7 @@ function Heatmap({ userId }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/user/contributions/${userId}`);
+                const res = await axios.get(`${server_url}/user/contributions/${userId}`);
                 setData(res.data);
             } catch (err) {
                 console.log("Error in fetching user contributions", err.message);

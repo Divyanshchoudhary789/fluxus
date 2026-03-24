@@ -3,6 +3,8 @@ import axios from "axios";
 import "./CreateRepo.css";
 
 import Navbar from "../../Navbar/Navbar.jsx";
+import { server_url } from "../../../environment.js";
+
 import { TextInput } from '@primer/react'
 import { Button } from '@primer/react'
 import { Avatar } from '@primer/react'
@@ -24,7 +26,7 @@ function CreateRepo() {
 
         const userInfo = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/userProfile/${userId}`);
+                const res = await axios.get(`${server_url}/userProfile/${userId}`);
                 setUsername(res.data.username);
             } catch (err) {
                 console.error("Error during fetching user details: ", err);
@@ -39,7 +41,7 @@ function CreateRepo() {
         setLoading(true);
 
         try {
-            const res = await axios.post("http://localhost:8080/repo/create", {
+            const res = await axios.post(`${server_url}/repo/create`, {
                 name: name,
                 description: description,
                 visibility: visibility,

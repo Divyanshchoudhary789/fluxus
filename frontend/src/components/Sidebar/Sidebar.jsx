@@ -11,6 +11,8 @@ import { RepoIcon } from '@primer/octicons-react'
 import { Button } from '@primer/react'
 import { Avatar } from '@primer/react'
 import "./Sidebar.css";
+import { server_url } from "../../environment.js";
+
 
 
 function Sidebar({ openSidebar, setOpenSidebar }) {
@@ -25,7 +27,7 @@ function Sidebar({ openSidebar, setOpenSidebar }) {
 
         const fetchRepositories = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/repo/user/${userId}`);
+                const res = await axios.get(`${server_url}/repo/user/${userId}`);
                 setRepositories(res.data.repositories);
             } catch (err) {
                 console.error("Error while fetching user Repositories", err);

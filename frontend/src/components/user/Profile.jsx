@@ -4,7 +4,7 @@ import "./Profile.css";
 import Navbar from "../Navbar/Navbar.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-
+import { server_url } from "../../environment.js";
 
 import { useParams } from "react-router-dom";
 
@@ -59,7 +59,7 @@ function Profile() {
     useEffect(() => {
         const userInfo = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/userProfile/${userId}`);
+                const res = await axios.get(`${server_url}/userProfile/${userId}`);
                 //console.log(res);
                 setUserInfo(res.data);
                 setStarredRepos(res.data.starredRepos);
@@ -73,7 +73,7 @@ function Profile() {
 
         const fetchRepositories = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/repo/user/${userId}`);
+                const res = await axios.get(`${server_url}/repo/user/${userId}`);
                 if (res) {
                     setRepositories(res.data.repositories);
                 }
@@ -122,7 +122,7 @@ function Profile() {
                 return
             }
             const userId = localStorage.getItem("userId");
-            const res = await axios.put(`http://localhost:8080/updateProfile/${userId}`, {
+            const res = await axios.put(`${server_url}/updateProfile/${userId}`, {
                 email: updatedEmail,
                 password: updatedPassword,
             });
@@ -147,7 +147,7 @@ function Profile() {
     const deleteAccount = async () => {
         try {
             const userId = localStorage.getItem("userId");
-            const result = await axios.delete(`http://localhost:8080/deleteProfile/${userId}`);
+            const result = await axios.delete(`${server_url}/deleteProfile/${userId}`);
             if (result) {
                 //console.log(result);
                 setResultMsg(result.data.message);
@@ -173,7 +173,7 @@ function Profile() {
     useEffect(() => {
         const getFollowers = async () => {
             try {
-                const result = await axios.get(`http://localhost:8080/user/followers/${userId}`);
+                const result = await axios.get(`${server_url}/user/followers/${userId}`);
                 //console.log(result);
                 setFollowers(result.data);
             } catch (err) {
@@ -191,7 +191,7 @@ function Profile() {
         const userId = localStorage.getItem("userId");
 
         try {
-            const result = await axios.patch(`http://localhost:8080/followUser/${userId}`, {
+            const result = await axios.patch(`${server_url}/followUser/${userId}`, {
                 repoOwnerId: anotherUserId,
             });
 

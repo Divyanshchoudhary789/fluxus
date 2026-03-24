@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GraphIcon, StarIcon } from '@primer/octicons-react';
 import "./Dashboard.css";
+import { server_url } from "../../environment.js";
 
 import Navbar from "../Navbar/Navbar.jsx";
 import { Button } from '@primer/react'
@@ -31,7 +32,7 @@ function Dashboard() {
 
         const fetchRepositories = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/repo/user/${userId}`);
+                const res = await axios.get(`${server_url}/repo/user/${userId}`);
                 setRepositories(res.data.repositories);
             } catch (err) {
                 console.error("Error while fetching user Repositories", err);
@@ -40,7 +41,7 @@ function Dashboard() {
 
         const fetchSuggestedRepositories = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/repo/all");
+                const res = await axios.get(`${server_url}/repo/all`);
                 //console.log(res);
                 setSuggestedRepositories(res.data);
             } catch (err) {
@@ -91,7 +92,7 @@ function Dashboard() {
     const starRepo = async (repoId) => {
         const userId = localStorage.getItem("userId");
         try {
-            const res = await axios.patch(`http://localhost:8080/starRepo/${userId}`, {
+            const res = await axios.patch(`${server_url}/starRepo/${userId}`, {
                 repoId,
             });
             //console.log(res);
@@ -113,7 +114,7 @@ function Dashboard() {
         const userId = localStorage.getItem("userId");
 
         try {
-            const result = await axios.patch(`http://localhost:8080/followUser/${userId}`, {
+            const result = await axios.patch(`${server_url}/followUser/${userId}`, {
                 repoOwnerId,
             });
 

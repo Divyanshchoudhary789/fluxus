@@ -3,6 +3,8 @@ import axios from "axios";
 import "./UserRepos.css";
 
 import Navbar from "../../Navbar/Navbar.jsx";
+import { server_url } from "../../../environment.js";
+
 import { Link } from "react-router-dom";
 import { Button } from '@primer/react'
 import { Avatar } from '@primer/react'
@@ -21,7 +23,7 @@ function UserRepos() {
 
         const fetchRepositories = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/repo/user/${userId}`);
+                const res = await axios.get(`${server_url}/repo/user/${userId}`);
                 setRepositories(res.data.repositories);
             } catch (err) {
                 console.error("Error while fetching user Repositories", err);

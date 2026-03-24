@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./Navbar.css";
 import { useAuth } from "../../authContext";
+import { server_url } from "../../environment.js";
 
 import { Link, useNavigate } from "react-router-dom";
 import { ActionList, ActionMenu } from '@primer/react'
@@ -56,7 +57,7 @@ function Navbar({ profileNavStyle }) {
     useEffect(() => {
         const fetchAllRepositories = async () => {
             try {
-                const res = await axios.get("http://localhost:8080/repo/all");
+                const res = await axios.get(`${server_url}/repo/all`);
                 setAllRepositories(res.data);
             } catch (err) {
                 console.error("Error while fetching all repositories: ", err);
@@ -82,7 +83,7 @@ function Navbar({ profileNavStyle }) {
         const userId = localStorage.getItem("userId");
         const userInfo = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/userProfile/${userId}`);
+                const res = await axios.get(`${server_url}/userProfile/${userId}`);
                 setUsername(res.data.username);
             } catch (err) {
                 console.error("Error during fetching user details: ", err);

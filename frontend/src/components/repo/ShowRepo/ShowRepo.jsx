@@ -11,7 +11,8 @@ import { useSearchParams } from "react-router-dom";
 
 import { FormControl, TextInput, TreeView } from '@primer/react'
 import Navbar from "../../Navbar/Navbar.jsx";
-import Footer from "../../Footer/Footer.jsx";
+import { server_url } from "../../../environment.js";
+
 import { CopyIcon } from '@primer/octicons-react'
 import { UnderlineNav } from '@primer/react'
 
@@ -76,7 +77,7 @@ function ShowRepo() {
     useEffect(() => {
         const fetchRepo = async () => {
             try {
-                const repo = await axios.get(`http://localhost:8080/repo/${repoId}`);
+                const repo = await axios.get(`${server_url}/repo/${repoId}`);
                 //console.log(repo);
                 setRepository(repo.data);
                 setRepoDescription(repo.data.description);
@@ -118,7 +119,7 @@ function ShowRepo() {
     const handleDescriptionUpdate = async () => {
         setLoading(true);
         try {
-            const response = await axios.put(`http://localhost:8080/repo/update/${repoId}`, {
+            const response = await axios.put(`${server_url}/repo/update/${repoId}`, {
                 description: repoDescription,
                 websiteLink: webLink,
             });
@@ -145,7 +146,7 @@ function ShowRepo() {
     useEffect(() => {
         const getAllIssues = async () => {
             try {
-                const result = await axios.get(`http://localhost:8080/issue/all/${repoId}`);
+                const result = await axios.get(`${server_url}/issue/all/${repoId}`);
                 //console.log(result);
                 if (result) {
                     setAllIssues(result.data.issues);
@@ -230,7 +231,7 @@ function ShowRepo() {
 
     const changeVisibility = async () => {
         try {
-            const response = await axios.patch(`http://localhost:8080/repo/toggle/${repoId}`);
+            const response = await axios.patch(`${server_url}/repo/toggle/${repoId}`);
 
             if (response) {
                 setShowMsg(response.data.message);
@@ -253,7 +254,7 @@ function ShowRepo() {
 
     const deleteRepo = async () => {
         try {
-            const result = await axios.delete(`http://localhost:8080/repo/delete/${repoId}`);
+            const result = await axios.delete(`${server_url}/repo/delete/${repoId}`);
             if (result) {
                 //console.log(result);
                 setShowMsg(result.data.message);
@@ -288,7 +289,7 @@ function ShowRepo() {
     useEffect(() => {
         const getRepoStars = async () => {
             try {
-                const result = await axios.get(`http://localhost:8080/repo/stars/${repoId}`);
+                const result = await axios.get(`${server_url}/repo/stars/${repoId}`);
                 //console.log(result);
                 setRepoStarsCount(result.data.users.length);
 
@@ -330,7 +331,7 @@ function ShowRepo() {
                         <div style={{ display: "flex", alignItems: "center", width: "60%" }}>
                             <div style={{ width: "100px" }}>Quick Setup -</div>
                             <div className="setup-link">
-                                <TextInput ref={inputRef} value={`http://localhost:8080/repo/${repoId}`} className="input" readOnly />
+                                <TextInput ref={inputRef} value={`${server_url}/repo/${repoId}`} className="input" readOnly />
                                 <div className="copy-wrapper">
                                     <CopyIcon onClick={copyToClipboard} className="copy-icon" size={18} />
                                 </div>

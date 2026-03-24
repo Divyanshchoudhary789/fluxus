@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button } from '@primer/react'
 import "./Auth.css";
 
+import { server_url } from "../../environment.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../authContext";
@@ -24,7 +25,7 @@ function Login() {
 
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:8080/login", {
+            const res = await axios.post(`${server_url}/login`, {
                 email: email,
                 password: password
             });

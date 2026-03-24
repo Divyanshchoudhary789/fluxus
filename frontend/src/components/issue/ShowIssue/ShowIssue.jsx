@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ShowIssue.css";
 
-
+import { server_url } from "../../../environment.js";
 import Navbar from "../../Navbar/Navbar.jsx";
 import { useNavigate, useParams } from "react-router-dom";
 import { Token } from '@primer/react'
@@ -35,7 +35,7 @@ function ShowIssue() {
 
         const fetchIssue = async () => {
             try {
-                const result = await axios.get(`http://localhost:8080/issue/${issueId}`);
+                const result = await axios.get(`${server_url}/issue/${issueId}`);
                 if (result) {
                     //console.log(result);
                     setIssue(result.data.issue);
@@ -57,7 +57,7 @@ function ShowIssue() {
 
     const updateIssue = async () => {
         try {
-            const result = await axios.put(`http://localhost:8080/issue/update/${issueId}`, {
+            const result = await axios.put(`${server_url}/issue/update/${issueId}`, {
                 title: newTitle,
                 description: newDescription,
                 status: newStatus,
@@ -81,7 +81,7 @@ function ShowIssue() {
 
     const deleteIssue = async () => {
         try {
-            const result = await axios.delete(`http://localhost:8080/issue/delete/${issueId}`);
+            const result = await axios.delete(`${server_url}/issue/delete/${issueId}`);
             if (result) {
                 //console.log(result);
                 navigate("/repos");

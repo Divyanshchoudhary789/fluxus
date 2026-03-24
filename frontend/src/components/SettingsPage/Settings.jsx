@@ -4,6 +4,8 @@ import "./Settings.css";
 
 
 import Navbar from "../Navbar/Navbar.jsx";
+import { server_url } from "../../environment.js";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import { MailIcon } from '@primer/octicons-react'
@@ -31,7 +33,7 @@ function Settings() {
         const userId = localStorage.getItem("userId");
         const userInfo = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/userProfile/${userId}`);
+                const res = await axios.get(`${server_url}/userProfile/${userId}`);
                 setUserInfo(res.data);
             } catch (err) {
                 console.error("Error during fetching user details: ", err);
@@ -55,7 +57,7 @@ function Settings() {
                 return
             }
             const userId = localStorage.getItem("userId");
-            const res = await axios.put(`http://localhost:8080/updateProfile/${userId}`, {
+            const res = await axios.put(`${server_url}/updateProfile/${userId}`, {
                 email: updatedEmail,
                 password: updatedPassword,
             });
@@ -80,7 +82,7 @@ function Settings() {
         setLoading(true);
         const userId = localStorage.getItem("userId");
         try {
-            const res = await axios.delete(`http://localhost:8080/deleteProfile/${userId}`);
+            const res = await axios.delete(`${server_url}/deleteProfile/${userId}`);
             setLoading(false);
             setResultMsg(res.data.message);
             setTimeout(() => {

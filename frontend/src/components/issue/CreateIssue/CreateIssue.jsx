@@ -5,6 +5,8 @@ import "./CreateIssue.css";
 import Navbar from "../../Navbar/Navbar.jsx";
 import Footer from "../../Footer/Footer.jsx";
 
+import { server_url } from "../../../environment.js";
+
 import { Button, FormControl, SelectPanel } from '@primer/react';
 import { TriangleDownIcon } from '@primer/octicons-react';
 import { TextInput } from '@primer/react'
@@ -40,7 +42,7 @@ function CreateIssue() {
 
         const fetchRepositories = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/repo/user/${userId}`);
+                const res = await axios.get(`${server_url}/repo/user/${userId}`);
                 setRepositories(res.data.repositories);
             } catch (err) {
                 console.error("Error while fetching user Repositories", err);
@@ -55,7 +57,7 @@ function CreateIssue() {
     const handleIssueCreation = async () => {
         setLoading(true);
         try {
-            const res = await axios.post(`http://localhost:8080/issue/create/${selected.id}`, {
+            const res = await axios.post(`${server_url}/issue/create/${selected.id}`, {
                 title: title,
                 description: description,
             });
