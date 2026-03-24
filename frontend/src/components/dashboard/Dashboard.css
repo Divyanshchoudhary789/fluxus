@@ -236,3 +236,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cli-banner{
+    margin: 20px 0px 0px 40px;
+    background-color: #316DCA;
+    border-radius: 15px;
+}
+
+.install-link{
+    width: 90%;
+    height: 50px;
+    background-color: #316DCA;
+    margin: 20px 40px;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 12px 20px;
+}

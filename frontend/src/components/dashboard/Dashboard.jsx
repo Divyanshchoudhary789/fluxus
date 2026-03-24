@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Avatar } from '@primer/react'
 import Footer from "../Footer/Footer.jsx";
 import { Banner } from '@primer/react'
+import { TerminalIcon } from '@primer/octicons-react'
 
 
 
@@ -204,23 +205,34 @@ function Dashboard() {
                             ))}
                         </div>
                     </div>
-                    <div id="changelog-card">
-                        <div style={{ fontSize: "14px", margin: "15px 0px", color: "e6edf3" }}>Latest from our changelog</div>
+                    <div >
+                        <div id="changelog-card">
+                            <div style={{ fontSize: "14px", margin: "15px 0px", color: "e6edf3" }}>Latest from our changelog</div>
 
-                        <div className="timeline">
-                            {data.map((item, index) => (
-                                <div className="timeline-item" key={index}>
-                                    <div className="dot"></div>
+                            <div className="timeline">
+                                {data.map((item, index) => (
+                                    <div className="timeline-item" key={index}>
+                                        <div className="dot"></div>
 
-                                    <div className="content">
-                                        <span className="time">{item.time}</span>
-                                        <p>{item.text}</p>
+                                        <div className="content">
+                                            <span className="time">{item.time}</span>
+                                            <p>{item.text}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
 
-                        <Link className="footer" to={"https://www.linkedin.com/in/divyansh--choudhary/"} ><div >View changelog →</div></Link>
+                            <Link className="footer" to={"https://www.linkedin.com/in/divyansh--choudhary/"} ><div >View changelog →</div></Link>
+                        </div>
+                        <div className="cli-banner">
+                            <Banner
+                                title="Quick Setup"
+                                description="Install the Flux CLI to start managing your repsoitories. use this command to install flux CLI gobally in your system."
+                            />
+                        </div>
+                        <div className="install-link">
+                            <div style={{ display: "flex", alignItems: "center",gap:"20px" }}><TerminalIcon size={20} /> npm install -g fluxus_cli</div>
+                        </div>
                     </div>
 
                 </main>
