@@ -3,7 +3,7 @@ import { useNavigate, useRoutes } from 'react-router-dom';
 
 
 //Pages List
-import Dashboard from "./components/dashboard/dashboard.jsx";
+import Dashboard from "./components/dashboard/Dashboard.jsx";
 import Profile from "./components/user/Profile.jsx";
 import Login from "./components/auth/Login.jsx";
 import Signup from "./components/auth/Signup.jsx";
