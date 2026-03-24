@@ -3,6 +3,7 @@ const path = require("path");
 const os = require("os");
 const { v4: uuidv4 } = require("uuid");
 const axios = require("axios");
+const server_url = process.env.SERVER_URL;
 
 
 async function getToken() {
@@ -239,7 +240,7 @@ async function commitRepo(message) {
 
         // sync with backend
         try {
-            await axios.post("http://localhost:8080/commit/create", {
+            await axios.post(`${server_url}/commit/create`, {
                 commitId: commitID,
                 message,
                 repoId,

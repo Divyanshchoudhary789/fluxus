@@ -4,6 +4,9 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
+const server_url = process.env.SERVER_URL;
+
+
 const configPath = path.join(os.homedir(), ".fluxconfig.json");
 
 async function fluxLogin() {
@@ -15,7 +18,7 @@ async function fluxLogin() {
             hideEchoBack: true
         });
 
-        const res = await axios.post("http://localhost:8080/login", {
+        const res = await axios.post(`${server_url}/login`, {
             email,
             password,
         });
