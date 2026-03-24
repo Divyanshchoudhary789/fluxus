@@ -15,6 +15,8 @@ async function uploadFolder(localPath, remotePath) {
         } else {
             const fileContent = await fs.readFile(fullPath);
 
+            console.log("Uploading files...");
+            
             await s3.send(new PutObjectCommand({
                 Bucket: S3_BUCKET,
                 Key: key,
