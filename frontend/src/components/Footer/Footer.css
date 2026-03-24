@@ -1,0 +1,8 @@
+.footer-div {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    bottom: 0px;
+    left: 25%;
+}

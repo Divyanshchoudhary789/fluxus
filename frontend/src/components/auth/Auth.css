@@ -1,0 +1,121 @@
+.auth-wrapper-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.auth-logo-container img {
+    height: 80px;
+    width: auto;
+    padding-left: 20px;
+}
+
+.auth-main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-central-div {
+    background-color: #161B22;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 380px;
+    min-height: 300px;
+    border-radius: 15px;
+    gap: 30px;
+    border: 1px solid #C9D1D9;
+}
+
+.auth-central-div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-input {
+    width: 250px;
+    height: 35px;
+    background-color: #0c1116;
+    border-radius: 5px;
+    padding: 0 1rem;
+    border: 0.5px solid #f1f6fd;
+    font-size: 0.9rem;
+    color: #C9D1D9;
+}
+
+.auth-input:hover,
+.auth-input:focus {
+    border-color: lightblue;
+}
+
+.auth-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #f1f6fd;
+    transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+}
+
+.auth-central-div button {
+    height: 35px;
+    width: 250px;
+    background-color: #238636;
+    border: none;
+    margin-left: 17%;
+}
+
+.auth-central-div button:hover {
+    background-color: #499458;
+    cursor: pointer;
+}
+
+.auth-lower-div {
+    width: 400px;
+    height: 80px;
+    border: 2px solid #C9D1D9;
+    background-color: #161B22;
+    margin-top: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:400px) {
+    .auth-central-div{
+        width: 300px;
+    }
+
+    .auth-lower-div{
+        width: 300px;
+    }
+    .auth-central-div button{
+        margin-left: 8.5%;
+    }
+}
+
+
+#signIn-banner{
+    position: fixed;
+    top: 20px;
+    background-color: #316DCA;
+    width: 40%;
+    left: 30%;
+}
+
+
+#signup-banner{
+    position: fixed;
+    top: 20px;
+    background-color: #316DCA;
+    width: 40%;
+    left: 30%;
+}

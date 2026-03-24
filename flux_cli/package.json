@@ -1,0 +1,20 @@
+{
+  "name": "flux_cli",
+  "version": "1.0.0",
+  "description": "\"Fluxus CLI - Version Control System\"",
+  "main": "index.js",
+  "bin": {
+    "flux": "./index.js"
+  },
+  "author": "Divyansh Choudhary",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1015.0",
+    "axios": "^1.13.6",
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.3.1",
+    "readline-sync": "^1.4.10",
+    "uuid": "^13.0.0",
+    "yargs": "^18.0.0"
+  }
+}

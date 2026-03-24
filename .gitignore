@@ -1,0 +1,6 @@
+/backend/node_modules
+/backend/.env
+
+/flux_cli/node_modules
+/flux_cli/.env
+

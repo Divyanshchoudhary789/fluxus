@@ -1,0 +1,493 @@
+.outer-main-div {
+    background-color: #212830;
+    height: 100vh;
+    width: 100%;
+    padding: 10px 230px;
+}
+
+
+
+.setup-link {
+    border: 1px solid #D1D7E0;
+    width: 80%;
+    height: 37px;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0px;
+}
+
+.copy-icon {
+    cursor: pointer;
+    color: #D1D7E0;
+    opacity: 0.5;
+    margin-left: 15px;
+    margin-top: 8px;
+}
+
+.copy-icon:hover {
+    opacity: 1;
+}
+
+.copy-wrapper {
+    width: 60px;
+    height: 35px;
+    background-color: rgba(240, 246, 252, 0.2);
+    padding: 0px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#banner {
+    position: fixed;
+    top: 110px;
+    background-color: #316DCA;
+    width: 40%;
+    left: 30%;
+}
+
+.issue-counter {
+    background: #30363d;
+    color: #f0f6fc;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.header {
+    height: 50px;
+    border-bottom: 1px solid #9198A1;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px 30px 20px;
+}
+
+.header-name {
+    display: flex;
+    align-items: center;
+}
+
+#repoName {
+    margin-left: 15px;
+    opacity: 0.9;
+    text-decoration: none;
+    color: #D1D7E0;
+}
+
+#repoName:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.body-div {
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.body-left {
+    padding-bottom: 10px;
+    border: 1px solid #9198A1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #c9d1d9;
+    width: 72%;
+    max-height: 400px;
+    margin-right: 10px;
+}
+
+
+
+.tree-item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+
+.tree-item:hover {
+    background-color: rgba(145, 152, 161, 0.1);
+}
+
+
+.tree-children {
+    margin-left: 18px;
+    border-left: 1px solid #9198A1;
+    padding-left: 8px;
+
+}
+
+.tree-children div {
+    font-size: 16px;
+}
+
+.tree-children div:hover {
+    text-decoration: underline;
+    color: #478BE6;
+}
+
+.folder {
+    font-weight: 400;
+}
+
+.folder:hover {
+    text-decoration: underline;
+    color: #478BE6;
+}
+
+
+
+.file {
+    color: #c9d1d9;
+}
+
+
+.icon {
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.icon:hover {
+    background: transparent;
+}
+
+.body-right {
+    width: 25%;
+    /*     border: 1px solid #9198A1; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+}
+
+.upper-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.description-update-form {
+    height: 400px;
+    width: 620px;
+    border: 1px solid #9198A1;
+    background-color: pink;
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    border-radius: 10px;
+    background-color: #212830;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 1px 0px 6px #9198A1;
+}
+
+.form-header {
+    width: 100%;
+    height: 60px;
+    background-color: #262c36;
+    border-radius: 10px 10px 0px 0px;
+    border-bottom: 1px solid #9198A1;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.form-body {
+    padding: 20px;
+}
+
+.input {
+    border: 1px solid #9198A1;
+    margin: 15px 0px;
+}
+
+.form-footer {
+    width: 100%;
+    height: 60px;
+    background-color: #262c36;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 15px;
+    border-top: 1px solid #9198A1;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.cancel-btn {
+    opacity: 0.7;
+}
+
+.cancel-btn:hover {
+    opacity: 1;
+}
+
+.green-btn:hover {
+    background-color: rgba(87, 171, 90, 0.7) !important;
+}
+
+#website-link {
+    text-decoration: none;
+}
+
+#website-link:hover {
+    text-decoration: underline;
+}
+
+.readme-icon-div {
+    margin: 10px 0px;
+    width: 100%;
+}
+
+#readme-icon {
+    text-decoration: none;
+}
+
+#readme-icon:hover {
+    text-decoration: underline;
+    color: #316DCA !important;
+}
+
+.readme-icon-div:hover {
+    color: #316DCA;
+}
+
+.repo-info {
+    width: 100%;
+    height: 150px;
+    margin: 10px 0px;
+    border-bottom: 1px solid #9198A1;
+}
+
+.issues-div {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.issue {
+    width: 40%;
+    min-height: 100px;
+    border: 1px solid #9198A1;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.owner-details {
+    width: 100%;
+    height: 50px;
+    background-color: #262C36;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border-radius: 6px 6px 0px 0px;
+    padding-inline: 15px;
+    gap: 10px;
+    border: 1px solid #9198A1;
+    color: #9198A1;
+}
+
+.repo-tree {
+    padding: 5px 15px;
+    max-height: 345px;
+    overflow-y: auto;
+}
+
+.repo-tree::-webkit-scrollbar {
+    display: none;
+}
+
+.settings-outer-div {
+    width: 100%;
+    height: 90%;
+    padding: 0px 10px;
+}
+
+.danger-zone {
+    width: 60%;
+    height: 40%;
+    border: 1px solid #E5534B;
+    border-radius: 8px;
+}
+
+.change-visibility-div {
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid #9198A1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    color: #9198A1;
+}
+
+.danger-zone-btn {
+    border: 1px solid #9198A1;
+    color: #E5534B;
+    background-color: rgba(145, 152, 161, 0.2);
+}
+
+.danger-zone-btn:hover {
+    background-color: #EA5C53;
+    color: #f0f6fc;
+}
+
+.change-description-div {
+    width: 100%;
+    height: 95px;
+    border-bottom: 1px solid #9198A1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    color: #9198A1;
+}
+
+.delete-repo-div {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    color: #9198A1;
+}
+
+.changevisibilityForm-div {
+    width: 180px;
+    height: 45px;
+    border: 1px solid #D1D7E0;
+    position: absolute;
+    top: 58.5%;
+    left: 46%;
+    border-radius: 10px;
+    background-color: #262C36;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    font-size: 15px;
+}
+
+#cross-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#cross-icon:hover {
+    opacity: 1;
+}
+
+.visibility-text-div {
+    opacity: 0.8;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.visibility-text-div:hover {
+    opacity: 1;
+}
+
+.visibility-text-div:active {
+    text-decoration: underline;
+}
+
+.delete-repo-panel {
+    width: 550px;
+    height: 350px;
+    border: 1px solid #9198A1;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    background-color: #212830;
+    z-index: 100;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px #9198A1;
+}
+
+#delete-div-top {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-panel-footer {
+    width: 100%;
+    height: 65px;
+    border-radius: 0px 0px 15px 15px;
+    border-top: 1px solid #9198A1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#delete-btn {
+    width: 70%;
+    height: 40px;
+}
+
+#delete-btn:hover {
+    background-color: #9198a143;
+}
+
+.upper-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #9198A1;
+}
+
+.issue-name-link {
+    text-decoration: none;
+    color: #316dca;
+    font-size: 25px;
+}
+
+.issue-name-link:hover {
+    text-decoration: underline;
+}
+
+
+
+#issue-description {
+    font-size: 18px;
+    color: #9198A1;
+}
+
+#issue-status{
+    font-size: 18px;
+    color: #9198A1;
+}

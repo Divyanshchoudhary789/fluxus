@@ -1,0 +1,147 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    height: 60px;
+    border-bottom: 1px solid #3d444d;
+    background-color: #151B23;
+}
+
+.logo-div {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.open-menu {
+    border: 1px solid #3d444d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.open-menu:hover {
+    opacity: 1;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-search-box {
+    width: 200px;
+    height: 30px;
+    padding: 0px 4px;
+    padding-bottom: 2px;
+    border: 1px solid #3d444d;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color: #C9D1D9;
+}
+
+#options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #3d444d;
+}
+
+.user-info {
+    padding: 10px 15px;
+    border-bottom: 1.5px solid #3d444d;
+}
+
+.profile-body {
+    border-bottom: 1.5px solid #3d444d;
+    padding: 10px 0px;
+}
+
+.profile-footer {
+    border-bottom: 1.5px solid #3d444d;
+    padding: 10px 0px;
+}
+
+.signout {
+    padding: 5px 0px;
+}
+
+#nav-searchbar-div {
+    width: 70%;
+    height: 400px;
+    position: fixed;
+    top: 0;
+    left: 120px;
+    border-radius: 15px;
+    border: 1.5px solid #3d444d;
+    background-color: #212830;
+    padding: 15px;
+
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+
+#nav-big-input {
+    width: 95%;
+    border: 1px solid #3d444d;
+    border-radius: 10px;
+}
+
+#nav-searchbar-div.open {
+    transform: translateY(0);
+}
+
+.search-results-div {
+    width: 100%;
+    height: 90%;
+    background-color: pink;
+    margin: 10px 0px;
+    background: transparent;
+    padding: 10px 15px;
+    overflow-y: auto;
+}
+
+.search-results-div::-webkit-scrollbar {
+    display: none;
+}
+
+.icon:hover {
+    background-color: #212830;
+}
+
+.icon Button:active {
+    background-color: rgba(205, 217, 229, 0.1);
+}
+
+.search-repo-link {
+    text-decoration: none;
+    color: #C9D1D9;
+}
+
+.search-repo-link:hover {
+    text-decoration: underline;
+    color: #478be6;
+}

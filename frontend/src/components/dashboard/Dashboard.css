@@ -1,0 +1,238 @@
+#dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+#user-repos {
+    width: 440px;
+    height: 100vh;
+    border: 1px solid #3d444d;
+    background-color: #212830;
+    padding: 5px 20px;
+    overflow-y: scroll;
+}
+
+#user-repos::-webkit-scrollbar {
+    display: none;
+}
+
+
+#search input {
+    width: 300px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: #212830;
+    border: 1px solid #3D4550;
+    color: #C9D1D9;
+    margin-bottom: 25px;
+}
+
+#searched-repo {
+    border: 1px solid #3d444d;
+    width: 300px;
+    min-height: 75px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+#main-div {
+    width: 100%;
+    display: flex;
+    padding: 30px 50px;
+}
+
+
+.feed-div {
+    width: 70%;
+}
+
+#suggested-repos-div {
+    height: 48%;
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #3d444d;
+    border-radius: 10px;
+    padding: 0px 15px;
+    background-color: #212830;
+    overflow-y: scroll;
+}
+
+#suggested-repos-div::-webkit-scrollbar {
+    display: none;
+}
+
+#trending-repo {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #3d444d;
+    padding: 0px 10px;
+    margin-bottom: 15px;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+}
+
+
+#new-button:hover {
+    background-color: #499458 !important;
+}
+
+#repo-name-link {
+    color: #D1D7E0;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+#repo-name-link:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+#suggested-repo-link {
+    text-decoration: none;
+    color: #D1D7E0;
+}
+
+#suggested-repo-link:hover {
+    text-decoration: underline;
+    color: #316DCA;
+}
+
+
+#changelog-card {
+    width: 350px;
+    height: 430px;
+    border: 1px solid #3d444d;
+    margin-left: 40px;
+    border-radius: 10px;
+    padding: 5px 15px;
+    background-color: #212830;
+}
+
+
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #30363d;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.dot {
+    position: absolute;
+    left: -18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #8b949e;
+}
+
+.content {
+    margin-left: 20px;
+}
+
+.time {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #C9D1D9;
+}
+
+.footer {
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.footer:hover {
+    text-decoration: underline;
+}
+
+#star-banner {
+    position: fixed;
+    top: 70px;
+    background-color: #316DCA;
+    width: 40%;
+    left: 30%;
+}
+
+#user-profile-avatar {
+    cursor: pointer;
+}
+
+.profile-avatar-popup {
+    position: absolute;
+    bottom: 120%;
+    left: 0;
+    width: 220px;
+    height: 80px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #2A313C;
+    border: 1px solid #d1d7e062;
+    color: #C9D1D9;
+    z-index: 1000;
+
+    box-shadow: 0px 8px 24px rgba(42, 49, 60,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    animation: fadeIn 0.15s ease-in-out;
+}
+
+.profile-avatar-popup::after{
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: #2A313C;
+    border-right: 1px solid #d1d7e062;
+    border-bottom: 1px solid #d1d7e062;
+    transform: rotate(45deg);
+}
+
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup-heading{
+    display: flex;
+    justify-content: space-between;
+}
