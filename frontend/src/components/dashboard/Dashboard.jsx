@@ -155,8 +155,8 @@ function Dashboard() {
                             <Button id="new-button" size="small" leadingVisual={<RepoIcon size={16} />} style={{ backgroundColor: "#347D39", color: "white", border: "none" }}>New</Button>
                         </Link>
                     </div>
-                    <div id="search">
-                        <input placeholder="Find a repository..." id="search" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
+                    <div id="search-container">
+                        <input placeholder="Find a repository..." className="search-input" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
                     </div>
                     {searchResults.map((repo) => (
                         <div key={repo._id} id="searched-repo">
@@ -205,7 +205,7 @@ function Dashboard() {
                             ))}
                         </div>
                     </div>
-                    <div >
+                    <div style={{width:"30%"}} >
                         <div id="changelog-card">
                             <div style={{ fontSize: "14px", margin: "15px 0px", color: "e6edf3" }}>Latest from our changelog</div>
 
