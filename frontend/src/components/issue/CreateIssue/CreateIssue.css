@@ -1,14 +1,13 @@
-#outer-issue-container{
+#outer-issue-container {
     width: 100vw;
     height: 100vh;
     background-color: #212830;
-    padding: 40px 60px;
 }
 
 .issue-container {
     width: 90%;
     height: 70%;
-    padding: 20px;
+    padding: 60px 100px;
 }
 
 .main-heading {
@@ -70,19 +69,19 @@
     font-weight: 500;
 }
 
-.select-panel div{
+.select-panel div {
     border: 1px solid #D1D7E0;
 }
 
-.select-panel div >div{
-    max-width: 100%;
+.select-panel div>div {
+    max-width: 95%;
 }
 
-.select-panel ul li{
+.select-panel ul li {
     margin-bottom: 10px;
 }
 
-.issue-form-right{
+.issue-form-right {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -90,12 +89,12 @@
     padding: 0px 30px;
 }
 
-.btn{
+.btn {
     background-color: #347D39;
     border: none;
 }
 
-.btn:hover{
-    background-color: rgba(87, 171, 90,0.8);
+.btn:hover {
+    background-color: rgba(87, 171, 90, 0.8);
 
 }
