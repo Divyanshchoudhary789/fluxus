@@ -10,7 +10,7 @@
     align-items: center;
     height: 98%;
     width: 100%;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 .repo-div {
@@ -39,14 +39,14 @@
 #results-wrapper {
     width: 100%;
     min-height: 70vh;
-    border: 1px solid #C9D1D9;
-    margin-bottom: 15px;
 }
 
 
 #results-repo {
     width: 100%;
     min-height: 100px;
+    border: 1px solid #C9D1D9;
+    margin-bottom: 15px;
 }
 
 .repo-link {
