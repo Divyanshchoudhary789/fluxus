@@ -74,6 +74,10 @@
     border: 1px solid #D1D7E0;
 }
 
+.select-panel div >div{
+    max-width: 100%;
+}
+
 .select-panel ul li{
     margin-bottom: 10px;
 }
