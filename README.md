@@ -25,7 +25,7 @@ https://fluxus-backend-ym4j.onrender.com
 
 -------
 
-##Tech Stack- Fluxus
+### Tech Stack- Fluxus
 1. Frontend - React.js
 2. Backend - Node.js, Express.js, JWT + bcryptjs(Authentication)
 3. Database - Mongodb
