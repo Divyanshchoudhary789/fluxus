@@ -18,7 +18,7 @@
 
 
 .search-input {
-    width: 250px;
+    width: 260px;
     height: 35px;
     border-radius: 5px;
     border: none;
@@ -32,7 +32,7 @@
 #searched-repo {
     border: 1px solid #3d444d;
     max-width: 270px;
-    height: auto;
+    min-height: 60px;
     border-radius: 10px;
     padding: 5px 10px;
     margin-bottom: 15px;
@@ -248,7 +248,7 @@
 }
 
 .install-link{
-    width: 95%;
+    max-width: 95%;
     max-height: 50px;
     background-color: #316DCA;
     margin: 20px 40px;
