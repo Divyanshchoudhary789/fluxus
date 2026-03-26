@@ -53,7 +53,7 @@ function UserRepos() {
         <>
             <Navbar />
             <div className="outer-wrapper-div">
-                <div style={{ fontSize: "24px", marginLeft: "280px", marginBottom: "20px",paddingTop:"40px" }}>My contributions</div>
+                <div style={{ fontSize: "24px", marginLeft: "260px", marginBottom: "20px",paddingTop:"40px" }}>My contributions</div>
                 <div className="user-repos-container">
                     <div className="repo-div">
                         <div className="upper-search-repo">
