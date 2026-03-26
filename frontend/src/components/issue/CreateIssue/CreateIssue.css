@@ -35,13 +35,13 @@
 .select-panel {
     border: 1px solid #D1D7E0;
     border-radius: 10px;
-    width: 300px;
+    width: 340px;
     min-height: 300px;
     max-height: 400px;
 }
 
 .repo-select-btn {
-    width: 300px;
+    width: 340px;
     height: 36px;
     background-color: #21262d;
     border: 1px solid #30363d;
