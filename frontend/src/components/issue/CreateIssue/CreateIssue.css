@@ -1,10 +1,12 @@
 #outer-issue-container{
     width: 100vw;
     height: auto;
+    background-color: #212830;
+    padding: 40px;
 }
 
 .issue-container {
-    width: 100%;
+    width: 90%;
     height: 70%;
     padding: 20px;
 }
