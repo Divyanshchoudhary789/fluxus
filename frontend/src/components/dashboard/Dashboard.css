@@ -18,7 +18,7 @@
 
 
 .search-input {
-    width: 280px;
+    width: 250px;
     height: 35px;
     border-radius: 5px;
     border: none;
@@ -31,7 +31,7 @@
 
 #searched-repo {
     border: 1px solid #3d444d;
-    max-width: 280px;
+    max-width: 230px;
     min-height: 75px;
     border-radius: 10px;
     padding: 5px 10px;
