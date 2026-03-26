@@ -1,8 +1,6 @@
 #dashboard {
     display: flex;
     justify-content: space-between;
-    width: 100vw;
-    height: 100vh;
 }
 
 #user-repos {
@@ -33,7 +31,7 @@
 
 #searched-repo {
     border: 1px solid #3d444d;
-    max-width: 200px;
+    max-width: 300px;
     min-height: 75px;
     border-radius: 10px;
     padding: 5px 10px;
