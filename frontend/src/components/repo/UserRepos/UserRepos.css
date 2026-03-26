@@ -13,14 +13,14 @@
     padding-top: 40px;
 }
 
-.repo-div{
+.repo-div {
     width: 70%;
     height: 80%;
     padding: 10px;
     overflow-y: scroll;
 }
 
-.repo-div::-webkit-scrollbar{
+.repo-div::-webkit-scrollbar {
     display: none;
 }
 
@@ -36,13 +36,15 @@
     margin-bottom: 25px;
 }
 
-#results-wrapper{
+#results-wrapper {
     width: 100%;
     min-height: 70vh;
+    border: 1px solid #C9D1D9;
+    margin-bottom: 15px;
 }
 
 
-#results-repo{
+#results-repo {
     width: 100%;
     min-height: 100px;
 }
