@@ -53,9 +53,9 @@ function UserRepos() {
         <>
             <Navbar />
             <div className="outer-wrapper-div">
-                <div style={{ fontSize: "24px", marginLeft: "310px", marginBottom: "20px" }}>My contributions</div>
+                <div style={{ fontSize: "24px", marginLeft: "310px", marginBottom: "20px",paddingTop:"40px" }}>My contributions</div>
                 <div className="user-repos-container">
-                    <div className="user-repo-div">
+                    <div className="repo-div">
                         <div className="upper-search-repo">
                             <div>
                                 <input placeholder="Find a repository..." id="repo-search-input" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
