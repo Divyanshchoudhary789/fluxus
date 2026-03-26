@@ -162,7 +162,7 @@ function Navbar({ profileNavStyle }) {
                 </div>
                 <div id="options" >
                     <ActionMenu>
-                        <ActionMenu.Button style={{ border: "1px solid #3d444d" }}><PlusIcon size={18} /></ActionMenu.Button>
+                        <ActionMenu.Button id="option-menu" style={{ border: "1px solid #3d444d" }}><PlusIcon size={18} /></ActionMenu.Button>
                         <ActionMenu.Overlay style={{ backgroundColor: "#2d343f" }}>
                             <ActionList >
                                 <ActionList.Item
@@ -208,7 +208,7 @@ function Navbar({ profileNavStyle }) {
                         <ActionMenu>
                             <ActionMenu.Button style={{ border: "none" }}><Avatar size={32} src="/avatar.png" alt="user avatar" /></ActionMenu.Button>
                             <ActionMenu.Overlay style={{ backgroundColor: "#2d343f", width: "235px" }}>
-                                <ActionList >
+                                <ActionList id="profile-list" >
                                     <div className="user-info" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                         <Avatar size={32} src="/avatar.png" alt="user avatar" />
                                         <div>{username}</div>

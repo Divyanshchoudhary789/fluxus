@@ -68,6 +68,14 @@
     border-left: 1px solid #3d444d;
 }
 
+#option-menu::-webkit-scrollbar {
+    display: none;
+}
+
+#profile-list::-webkit-scrollbar {
+    display: none;
+}
+
 .user-info {
     padding: 10px 15px;
     border-bottom: 1.5px solid #3d444d;
