@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     height: 98%;
-    width: 70%;
+    width: 100%;
     padding-top: 40px;
 }
 
@@ -36,13 +36,15 @@
     margin-bottom: 25px;
 }
 
-.searched-results-wrapper{
+#searched-results-wrapper{
     width: 100%;
+    min-height: 70vh;
 }
 
 
 #searched-repo{
     width: 100%;
+    min-height: 100px;
 }
 
 .repo-link {

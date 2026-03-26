@@ -67,7 +67,7 @@ function UserRepos() {
                             </div>
                         </div>
 
-                        <div className="searched-results-wrapper">
+                        <div id="searched-results-wrapper">
                             {searchResults.map((repo) => (
                                 <div key={repo._id} id="searched-repo">
                                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
