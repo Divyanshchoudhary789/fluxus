@@ -92,7 +92,7 @@ function Sidebar({ openSidebar, setOpenSidebar }) {
                         </Link>
                     </div>
                     <div id="sidebar-search">
-                        <input placeholder="Find a repository..." id="search" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
+                        <input placeholder="Find a repository..." id="search-input" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
                     </div>
                     {searchResults.map((repo) => (
                         <div key={repo._id} id="searched-repo-sidebar">

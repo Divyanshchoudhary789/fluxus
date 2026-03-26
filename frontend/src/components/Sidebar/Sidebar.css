@@ -55,7 +55,7 @@
     border-top: 1px solid #3d444d;
 }
 
-#sidebar-search input {
+#search-input {
     width: 280px;
     height: 35px;
     border-radius: 5px;
