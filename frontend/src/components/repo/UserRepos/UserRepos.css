@@ -10,11 +10,11 @@
     align-items: center;
     height: 98%;
     width: 70%;
-    margin: 40px 0px;
-    margin-left: 25px;
+    margin-inline: 40px;
+    padding-top: 40px;
 }
 
-#repo-search-input{
+#repo-search-input {
     width: 260px;
     height: 35px;
     border-radius: 5px;
@@ -27,12 +27,12 @@
 }
 
 
-.repo-link{
+.repo-link {
     text-decoration: none;
     color: #D1D7E0;
 }
 
-.repo-link:hover{
+.repo-link:hover {
     text-decoration: underline;
     color: #478BE6;
 }
