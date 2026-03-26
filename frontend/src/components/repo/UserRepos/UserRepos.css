@@ -36,14 +36,14 @@
     margin-bottom: 25px;
 }
 
-#searched-results-wrapper{
+#results-wrapper{
     width: 100%;
     min-height: 70vh;
 }
 
 
-#searched-repo{
-    width: 900px;
+#results-repo{
+    width: 100%;
     min-height: 100px;
 }
 

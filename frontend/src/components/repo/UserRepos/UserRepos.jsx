@@ -67,9 +67,9 @@ function UserRepos() {
                             </div>
                         </div>
 
-                        <div id="searched-results-wrapper">
+                        <div id="results-wrapper">
                             {searchResults.map((repo) => (
-                                <div key={repo._id} id="searched-repo">
+                                <div key={repo._id} id="results-repo">
                                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                                         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                                             <Avatar size={20} src="avatar.png" alt="user avatar" />
