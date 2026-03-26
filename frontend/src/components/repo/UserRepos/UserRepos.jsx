@@ -57,8 +57,8 @@ function UserRepos() {
                 <div className="user-repos-container">
                     <div className="user-repo-div">
                         <div className="upper-search-repo">
-                            <div className="repo-search">
-                                <input placeholder="Find a repository..." id="search" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
+                            <div>
+                                <input placeholder="Find a repository..." id="repo-search-input" name="search" type="text" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value) }} />
                             </div>
                             <div >
                                 <Link to={"/new"} style={{ textDecoration: "none" }}>

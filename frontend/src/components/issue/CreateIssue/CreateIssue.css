@@ -1,8 +1,8 @@
 #outer-issue-container{
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background-color: #212830;
-    padding: 40px;
+    padding: 40px 60px;
 }
 
 .issue-container {
