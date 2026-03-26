@@ -162,8 +162,8 @@ function Navbar({ profileNavStyle }) {
                 </div>
                 <div id="options" >
                     <ActionMenu>
-                        <ActionMenu.Button id="option-menu" style={{ border: "1px solid #3d444d" }}><PlusIcon size={18} /></ActionMenu.Button>
-                        <ActionMenu.Overlay style={{ backgroundColor: "#2d343f" }}>
+                        <ActionMenu.Button style={{ border: "1px solid #3d444d" }}><PlusIcon size={18} /></ActionMenu.Button>
+                        <ActionMenu.Overlay id="option-menu" style={{ backgroundColor: "#2d343f" }}>
                             <ActionList >
                                 <ActionList.Item
                                     onSelect={() => {
@@ -207,8 +207,8 @@ function Navbar({ profileNavStyle }) {
                     <div id="profile-icon">
                         <ActionMenu>
                             <ActionMenu.Button style={{ border: "none" }}><Avatar size={32} src="/avatar.png" alt="user avatar" /></ActionMenu.Button>
-                            <ActionMenu.Overlay style={{ backgroundColor: "#2d343f", width: "235px" }}>
-                                <ActionList id="profile-list" >
+                            <ActionMenu.Overlay id="profile-list" style={{ backgroundColor: "#2d343f", width: "235px" }}>
+                                <ActionList  >
                                     <div className="user-info" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                         <Avatar size={32} src="/avatar.png" alt="user avatar" />
                                         <div>{username}</div>
