@@ -31,7 +31,7 @@
 
 .repo-detail {
     width: 50%;
-    height: 150px;
+    height: 70px;
     border: 1px solid #9198A1;
     border-radius: 15px;
     padding: 30px;
@@ -53,7 +53,7 @@
 
 .update-issue,
 .delete-issue {
-    width: 100%;
+    width: auto;
     height: 50%;
     display: flex;
     justify-content: space-between;
@@ -73,7 +73,7 @@
 
 .edit-form {
     width: 500px;
-    height: 420px;
+    height: 380px;
     background-color: #212830;
     border: 1px solid #9198A1;
     border-radius: 15px;
