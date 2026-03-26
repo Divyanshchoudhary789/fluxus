@@ -2,7 +2,7 @@
 A complete GitHub-like version control platform with an integrated CLI tool for seamless repository management and version tracking.
 
 ## 🎯 Overview
-**Fluxus** is a full-stack version control platform designed to replicate GitHub's core functionality. It enables users to create repositories, manage files with nested folder structures, track commits, and maintain complete version history—all from both a web interface and an integrated command-line tool.
+**Fluxus** is a full-stack version control platform designed to replicate GitHub's core functionality. It enables users to create repositories, manage files with nested folder structures, track commits —all from both a web interface and an integrated command-line tool.
 
 # 🌐 Live Deployment
 
