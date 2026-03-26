@@ -7,7 +7,7 @@
 .issue-container {
     width: 90%;
     height: 70%;
-    padding: 60px 100px;
+    padding: 60px 80px;
 }
 
 .main-heading {
@@ -74,7 +74,7 @@
 }
 
 .select-panel div>div {
-    max-width: 95%;
+    width: 280px;
 }
 
 .select-panel ul li {
