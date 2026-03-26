@@ -227,7 +227,7 @@ function Dashboard() {
                         <div className="cli-banner">
                             <Banner
                                 title="Quick Setup"
-                                description="Install the Flux CLI to start managing your repsoitories. use this command to install flux CLI gobally in your system."
+                                description="Install the Flux CLI to start managing your repsoitories. use this command to install flux CLI globally in your system."
                             />
                         </div>
                         <div className="install-link">

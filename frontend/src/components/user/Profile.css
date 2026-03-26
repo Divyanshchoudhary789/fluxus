@@ -9,7 +9,7 @@
     width: 90%;
     height: 100vh;
     background-color: #212830;
-    padding-top: 50px;
+    padding-top: 30px;
     display: flex;
     gap: 50px;
     padding-left: 160px;
@@ -21,6 +21,7 @@
     padding: 0px 20px;
     width: 400px;
     height: 80%;
+    margin-left: 80px;
 }
 
 .overview-div {
@@ -114,7 +115,7 @@
 
 #searched-repo {
     border: 1.5px solid #3d444d;
-    width: 90%;
+    max-width: 90%;
     min-height: 80px;
     border-radius: 10px;
     padding: 10px 15px;

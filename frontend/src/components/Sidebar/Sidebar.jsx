@@ -96,7 +96,7 @@ function Sidebar({ openSidebar, setOpenSidebar }) {
                     </div>
                     {searchResults.map((repo) => (
                         <div key={repo._id} id="searched-repo-sidebar">
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                 <Avatar size={20} src="/avatar.png" alt="user avatar" />
                                 <Link id="repoName" to={`/repo/${repo._id}`} style={{ color: "#D1D7E0", borderColor: "#D1D7E0", opacity: "0.7" }} ><p style={{ fontSize: "16px", margin: "2px 0px" }}>{repo.name}</p></Link>
                             </div>
