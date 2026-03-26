@@ -30,7 +30,7 @@
 
 .user-repo-div {
     height: 80%;
-    width: 100%;
+    width: 60%;
     padding: 10px;
     overflow-y: scroll;
 }
@@ -93,7 +93,7 @@
 .user-repo {
     border: 1.5px solid #373E46;
     width: 48%;
-    min-height: 90px;
+    min-height: 80px;
     margin-bottom: 20px;
     border-radius: 10px;
     padding: 15px;
@@ -114,8 +114,8 @@
 
 #searched-repo {
     border: 1.5px solid #3d444d;
-    width: 100%;
-    min-height: 90px;
+    width: 90%;
+    min-height: 80px;
     border-radius: 10px;
     padding: 10px 15px;
     margin-bottom: 15px;
@@ -123,7 +123,7 @@
 
 .repo-search input {
     min-width: 600px;
-    height: 40px;
+    height: 20px;
     border-radius: 5px;
     border: none;
     padding: 10px;
