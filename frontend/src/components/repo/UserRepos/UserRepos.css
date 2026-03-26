@@ -25,7 +25,7 @@
 }
 
 #repo-search-input {
-    width: 300px;
+    width: 600px;
     height: 35px;
     border-radius: 5px;
     border: none;
@@ -43,7 +43,7 @@
 
 
 #searched-repo{
-    width: 100%;
+    width: 900px;
     min-height: 100px;
 }
 
