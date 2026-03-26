@@ -32,7 +32,7 @@
 #searched-repo {
     border: 1px solid #3d444d;
     max-width: 270px;
-    height: 60px;
+    min-height: 70px;
     border-radius: 10px;
     padding: 5px 10px;
     margin-bottom: 15px;
