@@ -80,7 +80,7 @@ function CreateIssue() {
     return (
         <>
             <Navbar />
-            <div className="outer-wrapper">
+            <div id="outer-issue-container">
                 {resultMsg ? <Banner
                     aria-label="message critical info"
                     id="settings-msg-banner"
